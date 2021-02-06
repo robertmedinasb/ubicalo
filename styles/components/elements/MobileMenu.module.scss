@@ -1,0 +1,123 @@
+@import '../../colors.scss';
+@import '../../global.scss';
+@import '../../mixins.scss';
+
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  background: $main-color;
+  clip-path: ellipse(93% 58% at 58% 26%);
+  transition: 0.6s;
+  z-index: 3;
+}
+.mobileMenuSecond {
+  @extend .mobileMenu;
+  clip-path: ellipse(104% 68% at 76% 26%);
+  background: $gray-menu-color;
+  z-index: 2;
+}
+.closeButton {
+  @extend .flex-aligned-centered;
+  background: $menu-overlay-color;
+  position: fixed;
+  width: 100%;
+  margin: 0 auto;
+  height: 25vh;
+  bottom: 0;
+  .closeIcon {
+    border-radius: 50%;
+    background: $main-color;
+    padding: 20px;
+    box-shadow: $box-shadow-color;
+    img {
+      width: 26px;
+      height: 26px;
+    }
+  }
+}
+.listMenu {
+  list-style: none;
+}
+.listMenu > li,
+.signOut {
+  padding: 9px 0;
+  color: $second-color;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 25px;
+  letter-spacing: -0.272px;
+}
+.signOut {
+  margin-top: 10%;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+.showIcon {
+  animation: moveToUp 0.6s linear forwards;
+}
+.hideIcon {
+  animation: moveToDown 0.6s linear forwards;
+}
+
+@keyframes moveToUp {
+  0% {
+    transform: translateY(100vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveToDown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.logo {
+  @extend .flex-aligned-centered;
+  img {
+    width: 30px;
+  }
+  h4 {
+    margin-left: 10px;
+    font-size: 30px;
+    line-height: 37px;
+    letter-spacing: 1px;
+    color: $second-color;
+  }
+  .avatar {
+    box-shadow: 5px 0px 4px rgba(255, 255, 255, 0.25);
+  }
+}
+.footerMenu {
+  margin-top: 20%;
+  .text {
+    @extend .flex-aligned-centered;
+    text-align: center;
+    color: $second-color;
+    strong {
+      margin-left: 5px;
+    }
+  }
+
+  .socialMedia {
+    @extend .flex-aligned-centered;
+    width: 100%;
+
+    li {
+      @extend .flex-aligned-centered;
+      padding: 10px;
+    }
+  }
+}
