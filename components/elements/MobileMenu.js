@@ -10,7 +10,7 @@ export const MobileMenu = ({ showMenu }) => {
         style={{
           height: showMenu ? '80vh' : 0,
           width: showMenu ? '100%' : 0,
-          padding: showMenu ? '40px' : 0,
+          padding: showMenu ? '10% 10% 40% 10%' : 0,
         }}
       >
         <header className={styles['header']}>
@@ -69,6 +69,7 @@ export const MobileMenu = ({ showMenu }) => {
           <img src={require('../../public/icons/ex.svg')} />
         </div>
       </div>
+      {showMenu && <div className={styles['overlay']} />}
     </>
   );
 };

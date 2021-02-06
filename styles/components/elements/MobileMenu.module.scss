@@ -9,8 +9,11 @@
   width: 100%;
   background: $main-color;
   clip-path: ellipse(93% 58% at 58% 26%);
-  transition: 0.6s;
+  transition: all 0.6s linear;
   z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .mobileMenuSecond {
   @extend .mobileMenu;
@@ -20,6 +23,7 @@
 }
 .closeButton {
   @extend .flex-aligned-centered;
+  z-index: 2;
   background: $menu-overlay-color;
   position: fixed;
   width: 100%;
@@ -42,15 +46,15 @@
 }
 .listMenu > li,
 .signOut {
-  padding: 9px 0;
+  padding: 1% 0;
   color: $second-color;
   font-weight: bold;
   font-size: 20px;
   line-height: 25px;
   letter-spacing: -0.272px;
+  width: fit-content;
 }
 .signOut {
-  margin-top: 10%;
   padding: 0;
   background: transparent;
   border: none;
@@ -87,25 +91,29 @@
 .logo {
   @extend .flex-aligned-centered;
   img {
-    width: 30px;
+    width: 25px;
   }
   h4 {
     margin-left: 10px;
-    font-size: 30px;
+    font-size: 25px;
     line-height: 37px;
     letter-spacing: 1px;
     color: $second-color;
   }
-  .avatar {
-    box-shadow: 5px 0px 4px rgba(255, 255, 255, 0.25);
+}
+.avatar {
+  @extend .flex-aligned-centered;
+  border-radius: 50%;
+  box-shadow: 5px 0px 4px rgba(255, 255, 255, 0.25);
+  img {
+    width: 40px;
   }
 }
 .footerMenu {
-  margin-top: 20%;
   .text {
-    @extend .flex-aligned-centered;
     text-align: center;
     color: $second-color;
+    font-size: 14px;
     strong {
       margin-left: 5px;
     }
@@ -114,10 +122,20 @@
   .socialMedia {
     @extend .flex-aligned-centered;
     width: 100%;
-
+    margin-top: 5px;
     li {
       @extend .flex-aligned-centered;
-      padding: 10px;
+      padding: 0 5px;
     }
   }
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: $menu-overlay-color;
+  z-index: 1;
+  transition: all 0.6s linear;
 }
