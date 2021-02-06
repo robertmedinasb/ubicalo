@@ -1,0 +1,104 @@
+@import '../../../mixins.scss';
+@import '../../../colors.scss';
+@import '../../../global.scss';
+
+.headerDesktopWrapper {
+  width: 100%;
+  padding: 21px 10%;
+  background: $main-color;
+}
+
+.headerDesktop {
+  @extend .flex-aligned-centered;
+  justify-content: space-between;
+}
+.logo {
+  @extend .flex-aligned-centered;
+  img {
+    width: 30px;
+  }
+  h4 {
+    margin-left: 10px;
+    font-size: 25px;
+    line-height: 37px;
+    letter-spacing: 1px;
+    color: $second-color;
+  }
+}
+.searchSection {
+  @extend .flex-aligned-centered;
+  .search {
+    margin-right: 15px;
+    @extend .flex-aligned-centered;
+    min-width: 230px;
+    position: relative;
+    input {
+      border: 1px solid $second-color;
+      padding: 9px 15px;
+      padding-right: 95px;
+      border-radius: 5px;
+      outline: none;
+      height: 35px;
+    }
+    button {
+      position: absolute;
+      right: 0;
+      width: 70px;
+      background: $main-color;
+      border-radius: 0 5px 5px 0;
+      border: 1px solid $second-color;
+      height: 100%;
+      color: $second-color;
+      font-weight: bold;
+      font-size: 11px;
+      cursor: pointer;
+      line-height: 14px;
+    }
+    img {
+      position: absolute;
+      right: 75px;
+    }
+  }
+}
+.navSection {
+  .links {
+    @extend .flex-aligned-centered;
+    list-style: none;
+    li {
+      margin-left: 40px;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 25px;
+      letter-spacing: -0.272px;
+      color: $second-color;
+      cursor: pointer;
+      @extend .flex-aligned-centered;
+      img {
+        width: 40px;
+      }
+    }
+  }
+}
+.filter {
+  position: relative;
+  cursor: pointer;
+  .circle {
+    @extend .flex-aligned-centered;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    top: -8px;
+    left: -5px;
+    color: $main-color;
+    background: $second-color;
+    font-size: 10px;
+    font-weight: bold;
+  }
+  .filterIcon {
+    img {
+      width: 25px;
+      height: 25px;
+    }
+  }
+}

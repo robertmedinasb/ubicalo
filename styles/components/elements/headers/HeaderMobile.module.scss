@@ -1,0 +1,61 @@
+@import '../../../mixins.scss';
+@import '../../../colors.scss';
+@import '../../../global.scss';
+
+.headerNav {
+  @extend .flex-aligned-centered;
+  background: $second-color;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  padding: 13px 5% 17px 5%;
+  justify-content: space-between;
+}
+.stateInformation {
+  @extend .flex-aligned-centered;
+  .locationIcon {
+    @extend .flex-aligned-centered;
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  .text {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    margin-left: 8px;
+  }
+}
+
+.filter {
+  position: relative;
+  .filterIcon {
+    width: 22px;
+    height: 22px;
+  }
+  .circle {
+    @extend .flex-aligned-centered;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    top: -8px;
+    left: -5px;
+    background: $main-color;
+    color: $second-color;
+    font-size: 10px;
+    font-weight: bold;
+  }
+}
+
+.menuIcon {
+  @extend .flex-aligned-centered;
+  background: $main-color;
+  position: fixed;
+  top: 55px;
+  right: 0px;
+  padding: 10px 13px 10px 14px;
+  box-shadow: $box-shadow-color;
+  border-radius: 10px 0px 0px 10px;
+}

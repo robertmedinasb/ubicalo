@@ -1,0 +1,141 @@
+@import '../../colors.scss';
+@import '../../global.scss';
+@import '../../mixins.scss';
+
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  background: $main-color;
+  clip-path: ellipse(93% 58% at 58% 26%);
+  transition: all 0.6s linear;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.mobileMenuSecond {
+  @extend .mobileMenu;
+  clip-path: ellipse(104% 68% at 76% 26%);
+  background: $gray-menu-color;
+  z-index: 2;
+}
+.closeButton {
+  @extend .flex-aligned-centered;
+  z-index: 2;
+  background: $menu-overlay-color;
+  position: fixed;
+  width: 100%;
+  margin: 0 auto;
+  height: 25vh;
+  bottom: 0;
+  .closeIcon {
+    border-radius: 50%;
+    background: $main-color;
+    padding: 20px;
+    box-shadow: $box-shadow-color;
+    img {
+      width: 26px;
+      height: 26px;
+    }
+  }
+}
+.listMenu {
+  list-style: none;
+}
+.listMenu > li,
+.signOut {
+  padding: 1% 0;
+  color: $second-color;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 25px;
+  letter-spacing: -0.272px;
+  width: fit-content;
+}
+.signOut {
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+.showIcon {
+  animation: moveToUp 0.6s linear forwards;
+}
+.hideIcon {
+  animation: moveToDown 0.6s linear forwards;
+}
+
+@keyframes moveToUp {
+  0% {
+    transform: translateY(100vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveToDown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.logo {
+  @extend .flex-aligned-centered;
+  img {
+    width: 25px;
+  }
+  h4 {
+    margin-left: 10px;
+    font-size: 25px;
+    line-height: 37px;
+    letter-spacing: 1px;
+    color: $second-color;
+  }
+}
+.avatar {
+  @extend .flex-aligned-centered;
+  border-radius: 50%;
+  box-shadow: 5px 0px 4px rgba(255, 255, 255, 0.25);
+  img {
+    width: 40px;
+  }
+}
+.footerMenu {
+  .text {
+    text-align: center;
+    color: $second-color;
+    font-size: 14px;
+    strong {
+      margin-left: 5px;
+    }
+  }
+
+  .socialMedia {
+    @extend .flex-aligned-centered;
+    width: 100%;
+    margin-top: 5px;
+    li {
+      @extend .flex-aligned-centered;
+      padding: 0 5px;
+    }
+  }
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: $menu-overlay-color;
+  z-index: 1;
+  transition: all 0.6s linear;
+}
