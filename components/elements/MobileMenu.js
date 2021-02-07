@@ -5,14 +5,7 @@ export const MobileMenu = ({ showMenu }) => {
   const dispatch = useDispatch();
   return (
     <>
-      <nav
-        className={styles['mobileMenu']}
-        style={{
-          height: showMenu ? '80vh' : 0,
-          width: showMenu ? '100%' : 0,
-          padding: showMenu ? '10% 10% 40% 10%' : 0,
-        }}
-      >
+      <nav className={styles['mobileMenu']}>
         <header className={styles['header']}>
           <div className={styles['logo']}>
             <img src={require('../../public/icons/location.svg')} />
@@ -69,7 +62,7 @@ export const MobileMenu = ({ showMenu }) => {
           <img src={require('../../public/icons/ex.svg')} />
         </div>
       </div>
-      {showMenu && <div className={styles['overlay']} />}
+      <div className={styles['overlay']} />
     </>
   );
 };
