@@ -1,14 +1,5 @@
-import Head from 'next/head';
-import styles from '../styles/Home.module.scss';
+import { Index } from '../components/modules';
 
 export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Ubicalo</title>
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
-      <div></div>
-    </div>
-  );
+  return <Index />;
 }

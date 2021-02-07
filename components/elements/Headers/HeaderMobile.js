@@ -1,11 +1,20 @@
+import { route } from 'next/dist/next-server/server/router';
 import { useDispatch, useSelector } from 'react-redux';
-import { setShowMenu } from '../../../slices/configAppSlice';
+import { setShowMenu, setShowFilters } from '../../../slices/configAppSlice';
 import styles from '../../../styles/components/elements/headers/HeaderMobile.module.scss';
 import { MobileMenu } from '../MobileMenu';
+import { useRouter } from 'next/router';
 
 export const HeaderMobile = () => {
   const dispatch = useDispatch();
   const showMenu = useSelector((state) => state.configApp.showMenu);
+  const filters = useSelector((state) => state.configApp.filters);
+  const showFilters = useSelector((state) => state.configApp.showFilters);
+  const router = useRouter();
+  const handleShowFilters = () => {
+    router.push('/#filtersSection');
+    dispatch(setShowFilters(!showFilters));
+  };
   return (
     <header className={styles['headerMobile']}>
       <nav className={styles['headerNav']}>
@@ -18,13 +27,13 @@ export const HeaderMobile = () => {
           </div>
           <span className={styles['text']}>California, USA</span>
         </div>
-        <div className={styles['filter']}>
+        <div className={styles['filter']} onClick={handleShowFilters}>
           <div className={styles['filterIcon']}>
             <img
               src={require('../../../public/icons/filter-black.png')}
               alt='filter'
             />
-            <div className={styles['circle']}>2</div>
+            <div className={styles['circle']}>{filters.length}</div>
           </div>
         </div>
       </nav>
@@ -34,7 +43,7 @@ export const HeaderMobile = () => {
       >
         <img src={require('../../../public/icons/menu.svg')} alt='menu' />
       </div>
-      <MobileMenu showMenu={showMenu} />
+      {showMenu && <MobileMenu showMenu={showMenu} />}
     </header>
   );
 };

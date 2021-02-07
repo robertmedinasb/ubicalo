@@ -4,4 +4,22 @@ export const constants = {
     MOBILE: 'Mobile',
     DESKTOP: 'Desktop',
   },
+  VALUES_TO_ORDERS: {
+    default: [{ key: 'Select', value: 'default' }],
+    name: [
+      { key: 'Select', value: 'default', disabled: true },
+      { key: 'A - Z', value: 'ASC', selected: true },
+      { key: 'Z - A', value: 'DESC' },
+    ],
+    rating: [
+      { key: 'Select', value: 'default', disabled: true },
+      { key: 'High Rating', value: 'DESC', selected: true },
+      { key: 'Low rating', value: 'ASC' },
+    ],
+    review_count: [
+      { key: 'Select', value: 'default', disabled: true },
+      { key: 'More reviews', value: 'DESC', selected: true },
+      { key: 'Less reviews', value: 'ASC' },
+    ],
+  },
 };

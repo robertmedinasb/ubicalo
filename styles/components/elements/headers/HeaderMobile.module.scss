@@ -6,7 +6,8 @@
   @extend .flex-aligned-centered;
   background: $second-color;
   width: 100%;
-  position: absolute;
+  position: fixed;
+  z-index: 4;
   top: 0;
   padding: 13px 5% 17px 5%;
   justify-content: space-between;
@@ -58,4 +59,5 @@
   padding: 10px 13px 10px 14px;
   box-shadow: $box-shadow-color;
   border-radius: 10px 0px 0px 10px;
+  z-index: 5;
 }

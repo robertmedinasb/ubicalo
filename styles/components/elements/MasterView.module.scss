@@ -1,0 +1,132 @@
+@import '../../colors.scss';
+@import '../../global.scss';
+@import '../../mixins.scss';
+
+.masterView {
+  max-width: 420px;
+  padding-right: 5%;
+  margin-top: 2%;
+  border-right: 1px solid #000000;
+  min-height: calc(100vh + (-120px));
+  @include size('mobile') {
+    margin: 0 auto;
+    padding-right: 0;
+    border: none;
+    width: 100%;
+  }
+}
+.filters {
+  display: flex;
+  min-height: 32px;
+  flex-wrap: wrap;
+  @include size('mobile') {
+    margin-right: 50px;
+    overflow: scroll;
+    flex-wrap: nowrap;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  .filter {
+    margin: 10px 0;
+    margin-right: 5px;
+    padding: 9px;
+    height: 32px;
+    background: #f2f2f2;
+    border-radius: 6px;
+    display: flex;
+    flex-wrap: nowrap;
+    .words {
+      font-weight: bold;
+      font-size: 11px;
+      line-height: 14px;
+      white-space: nowrap;
+    }
+    .deleteIcon {
+      margin-left: 5px;
+      cursor: pointer;
+      img {
+        width: 8px;
+        height: 8px;
+      }
+    }
+  }
+}
+
+.search {
+  @extend .flex-aligned-centered;
+  width: 100%;
+  justify-content: space-between;
+  margin: 25px 0;
+  .searchWrapper {
+    @extend .flex-aligned-centered;
+    justify-content: space-between;
+    position: relative;
+    flex-grow: 1;
+    .searchInput {
+      width: 100%;
+      border: 1px solid $main-color;
+      padding: 9px 15px;
+      padding-right: 45px;
+      border-radius: 5px;
+      outline: none;
+      height: 35px;
+    }
+    .searchIcon {
+      position: absolute;
+      right: 15px;
+    }
+  }
+  .searchButton {
+    font-weight: bold;
+    font-size: 11px;
+    line-height: 14px;
+    color: $second-color;
+    padding: 0 20px;
+    background: $main-color;
+    margin-left: 8px;
+    border-radius: 5px;
+    border: none;
+    height: 35px;
+    outline: none;
+  }
+}
+
+.cardsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 13px;
+}
+.filterSection {
+  @extend .flex-aligned-centered;
+  justify-content: space-between;
+  width: 100%;
+  .field-sort,
+  .field-order {
+    select {
+      width: 100%;
+      border: 1px solid $main-color;
+      padding: 9px 15px;
+      padding-right: 45px;
+      border-radius: 5px;
+      outline: none;
+      background-color: $second-color;
+      margin-top: 5px;
+    }
+    label {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 14px;
+      letter-spacing: -0.272px;
+      color: #000000;
+    }
+  }
+  .field-sort {
+    width: 40%;
+  }
+  .field-order {
+    width: 55%;
+  }
+}

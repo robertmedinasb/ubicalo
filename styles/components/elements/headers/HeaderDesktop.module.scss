@@ -6,6 +6,9 @@
   width: 100%;
   padding: 21px 10%;
   background: $main-color;
+  position: fixed;
+  top: 0;
+  z-index: 5;
 }
 
 .headerDesktop {
