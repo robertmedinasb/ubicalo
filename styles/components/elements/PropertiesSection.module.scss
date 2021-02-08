@@ -1,0 +1,62 @@
+@import '../../colors.scss';
+@import '../../global.scss';
+@import '../../mixins.scss';
+
+.title {
+  font-weight: bold;
+  font-size: 45px;
+  margin-bottom: 16px;
+  @include size('mobile') {
+    margin-bottom: 40px;
+    font-size: 24px;
+  }
+}
+.location {
+  font-weight: 300;
+  font-size: 30px;
+  letter-spacing: -0.272px;
+  margin-bottom: 32px;
+}
+.property {
+  display: flex;
+  flex-direction: column;
+  margin: 32px 0;
+  @include size('mobile') {
+    margin: 16px 0;
+  }
+  span {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 12px;
+    color: $gray-text-color;
+    margin-bottom: 8px;
+  }
+  strong {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 19px;
+    letter-spacing: 0.05em;
+  }
+}
+.footerMenu {
+  position: sticky;
+  bottom: 10%;
+  .text {
+    font-size: 14px;
+    strong {
+      margin-left: 5px;
+    }
+  }
+
+  .socialMedia {
+    @extend .flex-aligned-centered;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 5px;
+    li {
+      @extend .flex-aligned-centered;
+      padding: 0 5px;
+    }
+  }
+}

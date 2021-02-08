@@ -1,14 +1,14 @@
 @import './../../mixins.scss';
 
 .container {
-  margin-top: 80px;
   padding: 0 10%;
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  max-height: 1100px;
   @include size('mobile') {
     display: block;
     padding: 0 5%;
     margin-top: 55px;
+    max-height: none;
   }
 }

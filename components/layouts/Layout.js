@@ -11,7 +11,6 @@ export const Layout = ({ children }) => {
     dispatch(setWindowSize(windowSize));
   }, [windowSize]);
 
-
   return (
     <>
       <Header />

@@ -1,0 +1,54 @@
+@import '../../colors.scss';
+@import '../../global.scss';
+@import '../../mixins.scss';
+
+.imageSection {
+  width: 100%;
+  position: relative;
+  height: 45vh;
+  z-index: 1;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+.infoSection {
+  width: 100%;
+  padding: 5%;
+  height: 55vh;
+  background: $second-color;
+  border-radius: 25px 25px 0 0;
+  margin-top: -5%;
+  position: relative;
+  z-index: 2;
+  .title {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: 40px;
+  }
+  .property {
+    display: flex;
+    flex-direction: column;
+    margin: 16px 0;
+    span {
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 12px;
+      color: $gray-text-color;
+      margin-bottom: 8px;
+    }
+    strong {
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 19px;
+      letter-spacing: 0.05em;
+    }
+  }
+}
+.wrapperReviews {
+  @extend .flex-aligned-centered;
+  flex-direction: column;
+  align-items: flex-start;
+}

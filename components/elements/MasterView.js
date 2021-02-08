@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import {
+  executeGraphQLQuery,
+  getBusinessesWithLocationQuery,
+} from '../../api/businesses';
 import { constants } from '../../constants';
 import {
   addFilter,
   removeFilter,
-  searchLocation,
   setBusinesses,
 } from '../../slices/configAppSlice';
 import styles from '../../styles/components/elements/MasterView.module.scss';
@@ -20,10 +23,12 @@ export const MasterView = () => {
   const [inputLocation, setInputLocation] = useState('');
   const [sortBy, setSortBy] = useState('default');
   const [orderBy, setOrderBy] = useState('default');
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (inputLocation && inputLocation.length > 3) {
-      dispatch(addFilter({ key: 'Location', value: inputLocation }));
-      return dispatch(searchLocation(inputLocation));
+      const query = getBusinessesWithLocationQuery(inputLocation);
+      const { data } = await executeGraphQLQuery({ query });
+      const businesses = data.search.business;
+      dispatch(setBusinesses(businesses));
     }
   };
 
@@ -127,7 +132,7 @@ export const MasterView = () => {
               onChange={(e) => setOrderBy(e.target.value)}
             >
               {constants.VALUES_TO_ORDERS[sortBy].map(
-                ({ key, value, selected, disabled }, index) => (
+                ({ key, value, disabled }, index) => (
                   <option value={value} key={index} disabled={disabled}>
                     {key}
                   </option>

@@ -10,9 +10,8 @@ const initialState = {
   showMenu: false,
   showFilters: true,
   filters: [],
-  searchLocation: '',
   businesses: [],
-  businessSelected: {},
+  businessSelected: null,
   location: {
     latitude: undefined,
     longitude: undefined,
@@ -68,8 +67,15 @@ const configAppSlice = createSlice({
       };
       state.location = location;
     },
-    searchLocation(state, action) {
-      state.searchLocation = action.payload;
+    setBusinessSelected(state, action) {
+      const businessId = action.payload.id;
+      const businessesCopy = state.businesses.slice();
+      const idx = businessesCopy.findIndex(
+        (business) => business.id === businessId
+      );
+      businessesCopy[idx].seen = true;
+      state.businessSelected = businessesCopy;
+      state.businessSelected = action.payload;
     },
     setBusinesses(state, action) {
       const businesses = action.payload;
@@ -84,9 +90,9 @@ export const {
   addFilter,
   removeFilter,
   saveLocation,
-  searchLocation,
   setBusinesses,
   setShowFilters,
+  setBusinessSelected,
 } = configAppSlice.actions;
 
 export default configAppSlice.reducer;
