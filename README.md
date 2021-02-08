@@ -24,7 +24,7 @@ npm run dev
 yarn dev
 ```
 
-Y por último, el programa estará corriendo en el puerto (3000)[http://localhost:3000]
+Y por último, el programa estará corriendo en el [puerto 3000](http://localhost:3000)
 
 Así mismo, el proyecto está desplegado con vercel en el siguiente [link](https://ubicalo.develobert15.vercel.app)
 
