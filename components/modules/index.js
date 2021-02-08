@@ -7,6 +7,7 @@ import styles from '../../styles/components/modules/Index.module.scss';
 import { MasterView } from '../elements/MasterView';
 import { getIPFromVisitor, getIPLocation } from '../../api/location';
 import { constants } from '../../constants';
+import { DetailViewDesktop } from '../elements/DetailViewDesktop';
 
 export const Index = () => {
   const dispatch = useDispatch();
@@ -31,14 +32,17 @@ export const Index = () => {
   }, []);
 
   return (
-    <Layout>
+    <>
       <Head>
         <title>Ubicalo | Home</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <div className={styles.container}>
         <MasterView />
+        {windowSize.device === constants.CONFIG_WINDOW_SIZE.DESKTOP && (
+          <DetailViewDesktop />
+        )}
       </div>
-    </Layout>
+    </>
   );
 };

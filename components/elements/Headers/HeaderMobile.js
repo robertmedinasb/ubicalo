@@ -1,9 +1,9 @@
-import { route } from 'next/dist/next-server/server/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { setShowMenu, setShowFilters } from '../../../slices/configAppSlice';
 import styles from '../../../styles/components/elements/headers/HeaderMobile.module.scss';
 import { MobileMenu } from '../MobileMenu';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 export const HeaderMobile = () => {
   const dispatch = useDispatch();
@@ -25,7 +25,9 @@ export const HeaderMobile = () => {
               alt='location'
             />
           </div>
-          <span className={styles['text']}>California, USA</span>
+          <Link href='/'>
+            <span className={styles['text']}>UBICALO</span>
+          </Link>
         </div>
         <div className={styles['filter']} onClick={handleShowFilters}>
           <div className={styles['filterIcon']}>

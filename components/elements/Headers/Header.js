@@ -6,13 +6,12 @@ import { HeaderDesktop } from './HeaderDesktop';
 export const Header = () => {
   const windowSize = useSelector((state) => state.configApp.windowSize);
   return (
-    <header>
-      {windowSize.device === constants.CONFIG_WINDOW_SIZE.MOBILE && (
+    <>
+      {windowSize.device === constants.CONFIG_WINDOW_SIZE.MOBILE ? (
         <HeaderMobile />
-      )}
-      {windowSize.device === constants.CONFIG_WINDOW_SIZE.DESKTOP && (
+      ) : (
         <HeaderDesktop />
       )}
-    </header>
+    </>
   );
 };
